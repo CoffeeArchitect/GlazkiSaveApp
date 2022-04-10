@@ -1,0 +1,17 @@
+C:\Users\Sergey\source\repos\GlazkiSaveApp\GlazkiSaveApp\obj\Debug\GlazkiSaveApp.csproj.AssemblyReference.cache
+C:\Users\Sergey\source\repos\GlazkiSaveApp\GlazkiSaveApp\obj\Debug\GlazkiSaveApp.csproj.SuggestedBindingRedirects.cache
+C:\Users\Sergey\source\repos\GlazkiSaveApp\GlazkiSaveApp\obj\Debug\GlazkiSaveApp.Properties.Resources.resources
+C:\Users\Sergey\source\repos\GlazkiSaveApp\GlazkiSaveApp\obj\Debug\GlazkiSaveApp.Views.PartialView.AgentCard.resources
+C:\Users\Sergey\source\repos\GlazkiSaveApp\GlazkiSaveApp\obj\Debug\GlazkiSaveApp.csproj.GenerateResource.cache
+C:\Users\Sergey\source\repos\GlazkiSaveApp\GlazkiSaveApp\obj\Debug\GlazkiSaveApp.csproj.CoreCompileInputs.cache
+C:\Users\Sergey\source\repos\GlazkiSaveApp\GlazkiSaveApp\bin\Debug\GlazkiSaveApp.exe.config
+C:\Users\Sergey\source\repos\GlazkiSaveApp\GlazkiSaveApp\bin\Debug\GlazkiSaveApp.exe
+C:\Users\Sergey\source\repos\GlazkiSaveApp\GlazkiSaveApp\bin\Debug\GlazkiSaveApp.pdb
+C:\Users\Sergey\source\repos\GlazkiSaveApp\GlazkiSaveApp\bin\Debug\EntityFramework.dll
+C:\Users\Sergey\source\repos\GlazkiSaveApp\GlazkiSaveApp\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Sergey\source\repos\GlazkiSaveApp\GlazkiSaveApp\bin\Debug\EntityFramework.xml
+C:\Users\Sergey\source\repos\GlazkiSaveApp\GlazkiSaveApp\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Sergey\source\repos\GlazkiSaveApp\GlazkiSaveApp\obj\Debug\GlazkiSaveApp.MainForm.resources
+C:\Users\Sergey\source\repos\GlazkiSaveApp\GlazkiSaveApp\obj\Debug\GlazkiSaveApp.csproj.CopyComplete
+C:\Users\Sergey\source\repos\GlazkiSaveApp\GlazkiSaveApp\obj\Debug\GlazkiSaveApp.exe
+C:\Users\Sergey\source\repos\GlazkiSaveApp\GlazkiSaveApp\obj\Debug\GlazkiSaveApp.pdb
