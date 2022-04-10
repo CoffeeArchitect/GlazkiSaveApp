@@ -13,6 +13,7 @@ namespace GlazkiSaveApp.Views.PartialView
 {
     public partial class AgentCard : UserControl
     {
+        
         public AgentCard()
         {
             InitializeComponent();
@@ -33,25 +34,26 @@ namespace GlazkiSaveApp.Views.PartialView
             qtyLbl.Text = qty + " продаж за год";
             phoneLbl.Text = agent.Phone;
             priorityLbl.Text = "Приоритетность: " + agent.Priority;
-            if (sum > 10000 && sum < 50000)
+            
+            if (sum < 10000)
+            {
+                percentLbl.Text = "0%";
+            }
+            else if (sum >= 10000 && sum <= 50000)
             {
                 percentLbl.Text = "5%";
             }
-            else if (sum > 50000 && sum < 150000)
+            else if (sum > 50000 && sum <= 150000)
             {
                 percentLbl.Text = "10%";
             }
-            else if (sum > 15000 && sum < 500000)
+            else if (sum > 150000 && sum <= 500000)
             {
                 percentLbl.Text = "20%";
             }
-            else if (sum > 50000)
-            {
-                percentLbl.Text = "25%";
-            }
             else
             {
-                percentLbl.Text = "0%";
+                percentLbl.Text = "25%";
             }
         }
     }
