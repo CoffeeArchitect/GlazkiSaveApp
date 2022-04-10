@@ -48,16 +48,16 @@
             // flowLayoutPanel1
             // 
             this.flowLayoutPanel1.AutoScroll = true;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(13, 118);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(14, 124);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(1613, 754);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(1268, 792);
             this.flowLayoutPanel1.TabIndex = 0;
             // 
             // pageNumLbl
             // 
             this.pageNumLbl.AutoSize = true;
             this.pageNumLbl.Font = new System.Drawing.Font("Century Gothic", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.pageNumLbl.Location = new System.Drawing.Point(783, 921);
+            this.pageNumLbl.Location = new System.Drawing.Point(605, 967);
             this.pageNumLbl.Name = "pageNumLbl";
             this.pageNumLbl.Size = new System.Drawing.Size(103, 39);
             this.pageNumLbl.TabIndex = 1;
@@ -67,7 +67,7 @@
             // 
             this.prevLbl.AutoSize = true;
             this.prevLbl.Font = new System.Drawing.Font("Century Gothic", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.prevLbl.Location = new System.Drawing.Point(1360, 925);
+            this.prevLbl.Location = new System.Drawing.Point(1021, 967);
             this.prevLbl.Name = "prevLbl";
             this.prevLbl.Size = new System.Drawing.Size(36, 39);
             this.prevLbl.TabIndex = 2;
@@ -78,7 +78,7 @@
             // 
             this.pageOneLbl.AutoSize = true;
             this.pageOneLbl.Font = new System.Drawing.Font("Century Gothic", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.pageOneLbl.Location = new System.Drawing.Point(1402, 925);
+            this.pageOneLbl.Location = new System.Drawing.Point(1068, 967);
             this.pageOneLbl.Name = "pageOneLbl";
             this.pageOneLbl.Size = new System.Drawing.Size(35, 39);
             this.pageOneLbl.TabIndex = 2;
@@ -88,7 +88,7 @@
             // 
             this.pageTwoLbl.AutoSize = true;
             this.pageTwoLbl.Font = new System.Drawing.Font("Century Gothic", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.pageTwoLbl.Location = new System.Drawing.Point(1441, 925);
+            this.pageTwoLbl.Location = new System.Drawing.Point(1111, 967);
             this.pageTwoLbl.Name = "pageTwoLbl";
             this.pageTwoLbl.Size = new System.Drawing.Size(35, 39);
             this.pageTwoLbl.TabIndex = 2;
@@ -98,7 +98,7 @@
             // 
             this.pageThreeLbl.AutoSize = true;
             this.pageThreeLbl.Font = new System.Drawing.Font("Century Gothic", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.pageThreeLbl.Location = new System.Drawing.Point(1482, 925);
+            this.pageThreeLbl.Location = new System.Drawing.Point(1157, 967);
             this.pageThreeLbl.Name = "pageThreeLbl";
             this.pageThreeLbl.Size = new System.Drawing.Size(35, 39);
             this.pageThreeLbl.TabIndex = 2;
@@ -108,7 +108,7 @@
             // 
             this.pageFourLbl.AutoSize = true;
             this.pageFourLbl.Font = new System.Drawing.Font("Century Gothic", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.pageFourLbl.Location = new System.Drawing.Point(1523, 925);
+            this.pageFourLbl.Location = new System.Drawing.Point(1202, 967);
             this.pageFourLbl.Name = "pageFourLbl";
             this.pageFourLbl.Size = new System.Drawing.Size(35, 39);
             this.pageFourLbl.TabIndex = 2;
@@ -118,7 +118,7 @@
             // 
             this.pageNextLbl.AutoSize = true;
             this.pageNextLbl.Font = new System.Drawing.Font("Century Gothic", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.pageNextLbl.Location = new System.Drawing.Point(1564, 925);
+            this.pageNextLbl.Location = new System.Drawing.Point(1248, 967);
             this.pageNextLbl.Name = "pageNextLbl";
             this.pageNextLbl.Size = new System.Drawing.Size(36, 39);
             this.pageNextLbl.TabIndex = 2;
@@ -128,48 +128,52 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = global::GlazkiSaveApp.Properties.Resources.Глазки_save;
-            this.pictureBox1.Location = new System.Drawing.Point(13, 13);
+            this.pictureBox1.Location = new System.Drawing.Point(14, 14);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(107, 99);
+            this.pictureBox1.Size = new System.Drawing.Size(119, 104);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 3;
             this.pictureBox1.TabStop = false;
             // 
             // searchTextBox
             // 
-            this.searchTextBox.Location = new System.Drawing.Point(150, 45);
+            this.searchTextBox.Font = new System.Drawing.Font("Century Gothic", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.searchTextBox.Location = new System.Drawing.Point(139, 47);
             this.searchTextBox.Name = "searchTextBox";
-            this.searchTextBox.Size = new System.Drawing.Size(315, 26);
+            this.searchTextBox.Size = new System.Drawing.Size(383, 47);
             this.searchTextBox.TabIndex = 4;
             this.searchTextBox.Text = "Введите для поиска";
             this.searchTextBox.TextChanged += new System.EventHandler(this.searchTextBox_TextChanged);
             // 
             // sortComboBox
             // 
+            this.sortComboBox.Font = new System.Drawing.Font("Century Gothic", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.sortComboBox.FormattingEnabled = true;
             this.sortComboBox.Items.AddRange(new object[] {
             "Наименоание",
             "Приоритет"});
-            this.sortComboBox.Location = new System.Drawing.Point(530, 45);
+            this.sortComboBox.Location = new System.Drawing.Point(528, 47);
             this.sortComboBox.Name = "sortComboBox";
-            this.sortComboBox.Size = new System.Drawing.Size(180, 28);
+            this.sortComboBox.Size = new System.Drawing.Size(256, 47);
             this.sortComboBox.TabIndex = 5;
             this.sortComboBox.SelectedIndexChanged += new System.EventHandler(this.sortComboBox_SelectedIndexChanged);
             // 
             // filterComboBox
             // 
+            this.filterComboBox.Font = new System.Drawing.Font("Century Gothic", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.filterComboBox.FormattingEnabled = true;
-            this.filterComboBox.Location = new System.Drawing.Point(915, 45);
+            this.filterComboBox.Location = new System.Drawing.Point(1038, 47);
             this.filterComboBox.Name = "filterComboBox";
-            this.filterComboBox.Size = new System.Drawing.Size(180, 28);
+            this.filterComboBox.Size = new System.Drawing.Size(227, 47);
             this.filterComboBox.TabIndex = 5;
             // 
             // descCheckBox
             // 
             this.descCheckBox.AutoSize = true;
-            this.descCheckBox.Location = new System.Drawing.Point(731, 48);
+            this.descCheckBox.Font = new System.Drawing.Font("Century Gothic", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.descCheckBox.Location = new System.Drawing.Point(790, 49);
             this.descCheckBox.Name = "descCheckBox";
-            this.descCheckBox.Size = new System.Drawing.Size(126, 24);
+            this.descCheckBox.Size = new System.Drawing.Size(242, 43);
             this.descCheckBox.TabIndex = 6;
             this.descCheckBox.Text = "По убыанию";
             this.descCheckBox.UseVisualStyleBackColor = true;
@@ -177,10 +181,10 @@
             // 
             // MainForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(233)))), ((int)(((byte)(249)))));
-            this.ClientSize = new System.Drawing.Size(1638, 1005);
+            this.ClientSize = new System.Drawing.Size(1295, 1055);
             this.Controls.Add(this.descCheckBox);
             this.Controls.Add(this.filterComboBox);
             this.Controls.Add(this.sortComboBox);
@@ -194,6 +198,7 @@
             this.Controls.Add(this.prevLbl);
             this.Controls.Add(this.pageNumLbl);
             this.Controls.Add(this.flowLayoutPanel1);
+            this.Font = new System.Drawing.Font("Century Gothic", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "MainForm";
             this.Text = "Глазки-Save";
