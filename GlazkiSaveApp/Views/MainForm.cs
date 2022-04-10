@@ -23,6 +23,7 @@ namespace GlazkiSaveApp
             InitializeComponent();
             agents = DatabaseContext.db.Agent.ToList();
             TurnPageOnMainForm(currentPage, currentSize);
+            
         }
 
         private void GenerateAgentCardList(List<Agent> agent)
@@ -35,6 +36,47 @@ namespace GlazkiSaveApp
             }
         }
 
+
+        /// <summary>
+        /// Filter, Search And Sort
+        /// </summary>
+        private void SortListView()
+        {
+            var listUpdate = DatabaseContext.db.Agent.ToList();
+
+            #region Filter
+            if (filterComboBox.SelectedIndex > 0)
+            {
+                listUpdate = listUpdate
+                    .Where(type => type.AgentTypeID == (filterComboBox.SelectedItem as AgentType).ID)
+                    .ToList();
+            }
+            #endregion
+
+            #region Search
+            if (searchTextBox.Text != "Введите для поиска" && !string.IsNullOrWhiteSpace(searchTextBox.Text))
+            {
+                listUpdate = listUpdate
+                    .Where(p => p.Title.ToLower().Contains(searchTextBox.Text.ToLower())
+                    || p.Phone.Contains(searchTextBox.Text)
+                    || p.Email.ToLower().Contains(searchTextBox.Text.ToLower()))
+                    .ToList();
+            }
+            #endregion
+
+            #region Sort
+            if (sortComboBox.Text == "Наименование")
+            {
+                if (!descCheckBox.Checked)
+                    listUpdate = listUpdate.OrderBy(p => p.Title).ToList();
+                else
+                    listUpdate = listUpdate.
+                        OrderByDescending(p => p.Title).ToList();
+            }
+            #endregion
+            GenerateAgentCardList(listUpdate);
+        }
+        
         private void TurnPageOnMainForm(int pagenum, int pagesize)
         {
             if (currentPage < 0)
@@ -60,6 +102,36 @@ namespace GlazkiSaveApp
             currentPage = (currentPage - currentSize) < 0 ? (currentPage - 1) : 0;
             flowLayoutPanel1.Controls.Clear();
             TurnPageOnMainForm(currentPage, currentSize);
+        }
+
+        private void searchTextBox_TextChanged(object sender, EventArgs e)
+        {
+            if (searchTextBox.Text != "Введите для поиска")
+            {
+                flowLayoutPanel1.Controls.Clear();
+                SortListView();
+            }
+        }
+
+        private void MainForm_Load(object sender, EventArgs e)
+        {
+            var allType = DatabaseContext.db.AgentType.Select(type => type.Title).ToList();
+            allType.Insert(0, "Все типы");
+            filterComboBox.DataSource = allType;
+            filterComboBox.SelectedIndex = 0;
+            sortComboBox.SelectedIndex = 0;
+        }
+
+        private void sortComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            flowLayoutPanel1.Controls.Clear();
+            SortListView();
+        }
+
+        private void descCheckBox_CheckedChanged(object sender, EventArgs e)
+        {
+            flowLayoutPanel1.Controls.Clear();
+            SortListView();
         }
     }
 }

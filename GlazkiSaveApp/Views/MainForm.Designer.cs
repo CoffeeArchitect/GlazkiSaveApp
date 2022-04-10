@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.pageNumLbl = new System.Windows.Forms.Label();
             this.prevLbl = new System.Windows.Forms.Label();
@@ -36,6 +37,12 @@
             this.pageThreeLbl = new System.Windows.Forms.Label();
             this.pageFourLbl = new System.Windows.Forms.Label();
             this.pageNextLbl = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.searchTextBox = new System.Windows.Forms.TextBox();
+            this.sortComboBox = new System.Windows.Forms.ComboBox();
+            this.filterComboBox = new System.Windows.Forms.ComboBox();
+            this.descCheckBox = new System.Windows.Forms.CheckBox();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // flowLayoutPanel1
@@ -43,7 +50,7 @@
             this.flowLayoutPanel1.AutoScroll = true;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(13, 118);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(1643, 754);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(1613, 754);
             this.flowLayoutPanel1.TabIndex = 0;
             // 
             // pageNumLbl
@@ -118,11 +125,67 @@
             this.pageNextLbl.Text = ">";
             this.pageNextLbl.Click += new System.EventHandler(this.pageNextLbl_Click);
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::GlazkiSaveApp.Properties.Resources.Глазки_save;
+            this.pictureBox1.Location = new System.Drawing.Point(13, 13);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(107, 99);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 3;
+            this.pictureBox1.TabStop = false;
+            // 
+            // searchTextBox
+            // 
+            this.searchTextBox.Location = new System.Drawing.Point(150, 45);
+            this.searchTextBox.Name = "searchTextBox";
+            this.searchTextBox.Size = new System.Drawing.Size(315, 26);
+            this.searchTextBox.TabIndex = 4;
+            this.searchTextBox.Text = "Введите для поиска";
+            this.searchTextBox.TextChanged += new System.EventHandler(this.searchTextBox_TextChanged);
+            // 
+            // sortComboBox
+            // 
+            this.sortComboBox.FormattingEnabled = true;
+            this.sortComboBox.Items.AddRange(new object[] {
+            "Наименоание",
+            "Приоритет"});
+            this.sortComboBox.Location = new System.Drawing.Point(530, 45);
+            this.sortComboBox.Name = "sortComboBox";
+            this.sortComboBox.Size = new System.Drawing.Size(180, 28);
+            this.sortComboBox.TabIndex = 5;
+            this.sortComboBox.SelectedIndexChanged += new System.EventHandler(this.sortComboBox_SelectedIndexChanged);
+            // 
+            // filterComboBox
+            // 
+            this.filterComboBox.FormattingEnabled = true;
+            this.filterComboBox.Location = new System.Drawing.Point(915, 45);
+            this.filterComboBox.Name = "filterComboBox";
+            this.filterComboBox.Size = new System.Drawing.Size(180, 28);
+            this.filterComboBox.TabIndex = 5;
+            // 
+            // descCheckBox
+            // 
+            this.descCheckBox.AutoSize = true;
+            this.descCheckBox.Location = new System.Drawing.Point(731, 48);
+            this.descCheckBox.Name = "descCheckBox";
+            this.descCheckBox.Size = new System.Drawing.Size(126, 24);
+            this.descCheckBox.TabIndex = 6;
+            this.descCheckBox.Text = "По убыанию";
+            this.descCheckBox.UseVisualStyleBackColor = true;
+            this.descCheckBox.CheckedChanged += new System.EventHandler(this.descCheckBox_CheckedChanged);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1668, 1005);
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(233)))), ((int)(((byte)(249)))));
+            this.ClientSize = new System.Drawing.Size(1638, 1005);
+            this.Controls.Add(this.descCheckBox);
+            this.Controls.Add(this.filterComboBox);
+            this.Controls.Add(this.sortComboBox);
+            this.Controls.Add(this.searchTextBox);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.pageNextLbl);
             this.Controls.Add(this.pageFourLbl);
             this.Controls.Add(this.pageThreeLbl);
@@ -131,8 +194,11 @@
             this.Controls.Add(this.prevLbl);
             this.Controls.Add(this.pageNumLbl);
             this.Controls.Add(this.flowLayoutPanel1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "MainForm";
-            this.Text = "Form1";
+            this.Text = "Глазки-Save";
+            this.Load += new System.EventHandler(this.MainForm_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -148,6 +214,11 @@
         private System.Windows.Forms.Label pageThreeLbl;
         private System.Windows.Forms.Label pageFourLbl;
         private System.Windows.Forms.Label pageNextLbl;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.TextBox searchTextBox;
+        private System.Windows.Forms.ComboBox sortComboBox;
+        public System.Windows.Forms.ComboBox filterComboBox;
+        private System.Windows.Forms.CheckBox descCheckBox;
     }
 }
 

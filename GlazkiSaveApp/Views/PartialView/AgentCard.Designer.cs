@@ -33,8 +33,8 @@
             this.phoneLbl = new System.Windows.Forms.Label();
             this.priorityLbl = new System.Windows.Forms.Label();
             this.percentLbl = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -88,16 +88,6 @@
             this.percentLbl.TabIndex = 1;
             this.percentLbl.Text = "10%";
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::GlazkiSaveApp.Properties.Resources.picture;
-            this.pictureBox1.Location = new System.Drawing.Point(4, 4);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(398, 351);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
-            // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.ControlLight;
@@ -106,18 +96,28 @@
             this.panel1.Size = new System.Drawing.Size(1565, 16);
             this.panel1.TabIndex = 2;
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::GlazkiSaveApp.Properties.Resources.picture;
+            this.pictureBox1.Location = new System.Drawing.Point(74, 39);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(285, 262);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
+            // 
             // AgentCard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Window;
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.priorityLbl);
             this.Controls.Add(this.phoneLbl);
             this.Controls.Add(this.qtyLbl);
             this.Controls.Add(this.percentLbl);
             this.Controls.Add(this.typeNameLbl);
-            this.Controls.Add(this.pictureBox1);
             this.Name = "AgentCard";
             this.Size = new System.Drawing.Size(1565, 358);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -127,13 +127,12 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label typeNameLbl;
         private System.Windows.Forms.Label qtyLbl;
         private System.Windows.Forms.Label phoneLbl;
         private System.Windows.Forms.Label priorityLbl;
         private System.Windows.Forms.Label percentLbl;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
