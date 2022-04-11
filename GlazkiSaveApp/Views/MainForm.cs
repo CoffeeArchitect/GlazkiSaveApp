@@ -33,7 +33,13 @@ namespace GlazkiSaveApp
                 AgentCard card = new AgentCard();
                 card.GenerateDataToAgentCard(a);
                 flowLayoutPanel1.Controls.Add(card);
+                card.DoubleClick += new System.EventHandler(this.Card_DoubleClick);
             }
+        }
+
+        private void Card_DoubleClick(object sender, EventArgs e)
+        {
+            throw new NotImplementedException();
         }
 
 
