@@ -42,6 +42,7 @@
             this.sortComboBox = new System.Windows.Forms.ComboBox();
             this.filterComboBox = new System.Windows.Forms.ComboBox();
             this.descCheckBox = new System.Windows.Forms.CheckBox();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -179,12 +180,24 @@
             this.descCheckBox.UseVisualStyleBackColor = true;
             this.descCheckBox.CheckedChanged += new System.EventHandler(this.descCheckBox_CheckedChanged);
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(14, 958);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(227, 48);
+            this.button1.TabIndex = 7;
+            this.button1.Text = "Изменить приоритет на ...";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Visible = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(233)))), ((int)(((byte)(249)))));
             this.ClientSize = new System.Drawing.Size(1295, 1055);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.descCheckBox);
             this.Controls.Add(this.filterComboBox);
             this.Controls.Add(this.sortComboBox);
@@ -224,6 +237,7 @@
         private System.Windows.Forms.ComboBox sortComboBox;
         public System.Windows.Forms.ComboBox filterComboBox;
         private System.Windows.Forms.CheckBox descCheckBox;
+        private System.Windows.Forms.Button button1;
     }
 }
 

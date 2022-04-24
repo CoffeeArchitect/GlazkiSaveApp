@@ -33,7 +33,7 @@ namespace GlazkiSaveApp.Views.PartialView
 
             qtyLbl.Text = qty + " продаж за год";
             phoneLbl.Text = agent.Phone;
-            priorityLbl.Text = "Приоритетность: " + agent.Priority;
+            priorityValueLbl.Text = agent.Priority.ToString();
             
             if (sum < 10000)
             {
@@ -55,6 +55,11 @@ namespace GlazkiSaveApp.Views.PartialView
             {
                 percentLbl.Text = "25%";
             }
+        }
+
+        private void AgentCard_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

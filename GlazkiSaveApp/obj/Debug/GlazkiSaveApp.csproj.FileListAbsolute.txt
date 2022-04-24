@@ -15,3 +15,4 @@ C:\Users\Sergey\source\repos\GlazkiSaveApp\GlazkiSaveApp\obj\Debug\GlazkiSaveApp
 C:\Users\Sergey\source\repos\GlazkiSaveApp\GlazkiSaveApp\obj\Debug\GlazkiSaveApp.csproj.CopyComplete
 C:\Users\Sergey\source\repos\GlazkiSaveApp\GlazkiSaveApp\obj\Debug\GlazkiSaveApp.exe
 C:\Users\Sergey\source\repos\GlazkiSaveApp\GlazkiSaveApp\obj\Debug\GlazkiSaveApp.pdb
+C:\Users\Sergey\source\repos\GlazkiSaveApp\GlazkiSaveApp\obj\Debug\GlazkiSaveApp.Views.PriorityChangeModalWindow.resources

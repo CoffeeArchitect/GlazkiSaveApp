@@ -1,8 +1,10 @@
 ﻿using GlazkiSaveApp.Models;
 using GlazkiSaveApp.Utils;
+using GlazkiSaveApp.Views;
 using GlazkiSaveApp.Views.PartialView;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
@@ -15,7 +17,8 @@ namespace GlazkiSaveApp
 {
     public partial class MainForm : Form
     {
-        List<Agent> agents = new List<Agent>();
+        public static List<Agent> agents = new List<Agent>();
+        public static List<AgentCard> selectedAgentCard = new List<AgentCard>();
         int currentPage = 0;
         int currentSize = 20;
         public MainForm()
@@ -30,16 +33,47 @@ namespace GlazkiSaveApp
         {
             foreach (var a in agent)
             {
+                
                 AgentCard card = new AgentCard();
+                
                 card.GenerateDataToAgentCard(a);
                 flowLayoutPanel1.Controls.Add(card);
+                
                 card.DoubleClick += new System.EventHandler(this.Card_DoubleClick);
+                card.Click += new System.EventHandler(this.Card_Click);
+            }
+        }
+
+        private void Card_Click(object sender, EventArgs e)
+        {
+            AgentCard card = sender as AgentCard;
+            
+             
+            if (card.BackColor == Color.White)
+            {
+                card.BackColor = Color.FromArgb(255, 233, 249);
+                selectedAgentCard.Add(card);
+            }
+            else
+            {
+                card.BackColor = Color.White;
+                selectedAgentCard.Remove(card);
+            }
+            
+            if (selectedAgentCard.Count > 1)
+            {
+                button1.Visible = true;
+            }
+            else
+            {
+                button1.Visible = false;
             }
         }
 
         private void Card_DoubleClick(object sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            AgentCard card = (AgentCard)sender;
+
         }
 
 
@@ -126,6 +160,8 @@ namespace GlazkiSaveApp
             filterComboBox.DataSource = allType;
             filterComboBox.SelectedIndex = 0;
             sortComboBox.SelectedIndex = 0;
+            
+            
         }
 
         private void sortComboBox_SelectedIndexChanged(object sender, EventArgs e)
@@ -138,6 +174,12 @@ namespace GlazkiSaveApp
         {
             flowLayoutPanel1.Controls.Clear();
             SortListView();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            PriorityChangeModalWindow priorityChange = new PriorityChangeModalWindow();
+            DialogResult dialogResult = priorityChange.ShowDialog();
         }
     }
 }

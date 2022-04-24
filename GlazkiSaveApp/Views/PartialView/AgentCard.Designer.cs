@@ -35,6 +35,7 @@
             this.percentLbl = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.priorityValueLbl = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -74,9 +75,9 @@
             this.priorityLbl.Font = new System.Drawing.Font("Century Gothic", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.priorityLbl.Location = new System.Drawing.Point(462, 272);
             this.priorityLbl.Name = "priorityLbl";
-            this.priorityLbl.Size = new System.Drawing.Size(411, 49);
+            this.priorityLbl.Size = new System.Drawing.Size(356, 49);
             this.priorityLbl.TabIndex = 1;
-            this.priorityLbl.Text = "Приоритетность: 10";
+            this.priorityLbl.Text = "Приоритетность:";
             // 
             // percentLbl
             // 
@@ -106,13 +107,24 @@
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
+            // priorityValueLbl
+            // 
+            this.priorityValueLbl.AutoSize = true;
+            this.priorityValueLbl.Font = new System.Drawing.Font("Century Gothic", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.priorityValueLbl.Location = new System.Drawing.Point(824, 272);
+            this.priorityValueLbl.Name = "priorityValueLbl";
+            this.priorityValueLbl.Size = new System.Drawing.Size(66, 49);
+            this.priorityValueLbl.TabIndex = 1;
+            this.priorityValueLbl.Text = "32";
+            // 
             // AgentCard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.Window;
+            this.BackColor = System.Drawing.Color.White;
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.panel1);
+            this.Controls.Add(this.priorityValueLbl);
             this.Controls.Add(this.priorityLbl);
             this.Controls.Add(this.phoneLbl);
             this.Controls.Add(this.qtyLbl);
@@ -120,6 +132,7 @@
             this.Controls.Add(this.typeNameLbl);
             this.Name = "AgentCard";
             this.Size = new System.Drawing.Size(1565, 358);
+            this.Load += new System.EventHandler(this.AgentCard_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -129,10 +142,11 @@
         #endregion
         private System.Windows.Forms.Label typeNameLbl;
         private System.Windows.Forms.Label qtyLbl;
-        private System.Windows.Forms.Label phoneLbl;
-        private System.Windows.Forms.Label priorityLbl;
         private System.Windows.Forms.Label percentLbl;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.PictureBox pictureBox1;
+        public System.Windows.Forms.Label priorityLbl;
+        public System.Windows.Forms.Label phoneLbl;
+        public System.Windows.Forms.Label priorityValueLbl;
     }
 }
