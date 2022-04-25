@@ -40,5 +40,25 @@ namespace GlazkiSaveApp.Views
 
             textBox1.Text = agentCards.priorityLbl.ToString();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            int valueTxtBox = Convert.ToInt32(textBox1.Text);
+            foreach (AgentCard agentCard in MainForm.selectedAgentCard)
+            {
+                Agent agent = (DatabaseContext.db.Agent.First(x => x.Phone == agentCard.phoneLbl.Text)) as Agent;
+                agent.Priority += valueTxtBox;
+            }
+
+            try
+            {
+                DatabaseContext.db.SaveChanges();
+                DialogResult = DialogResult.OK;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
     }
 }

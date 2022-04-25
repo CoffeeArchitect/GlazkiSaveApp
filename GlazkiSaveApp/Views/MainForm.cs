@@ -74,8 +74,22 @@ namespace GlazkiSaveApp
         {
             AgentCard card = (AgentCard)sender;
 
-        }
+            EditAgentForm editForm = new EditAgentForm()
+            {
+                Agent = (Agent)agents.First(a => $"{a.AgentType.Title} | {a.Title}" == card.typeNameLbl.Text)
+            };
 
+            DialogResult dialogResult = editForm.ShowDialog();
+
+            if (dialogResult == DialogResult.OK)
+            {
+                SortListView();
+            }
+
+        }
+        string search = "";
+        string filter = "Все типы";
+        string sort = "Наименование";
 
         /// <summary>
         /// Filter, Search And Sort
@@ -85,34 +99,53 @@ namespace GlazkiSaveApp
             var listUpdate = DatabaseContext.db.Agent.ToList();
 
             #region Filter
-            if (filterComboBox.SelectedIndex > 0)
+            if (filter != "Все типы")
             {
-                listUpdate = listUpdate
-                    .Where(type => type.AgentTypeID == (filterComboBox.SelectedItem as AgentType).ID)
-                    .ToList();
+                listUpdate = listUpdate.Where(a => a.AgentType.Title == filter).ToList();
+                flowLayoutPanel1.Controls.Clear();
             }
             #endregion
 
             #region Search
-            if (searchTextBox.Text != "Введите для поиска" && !string.IsNullOrWhiteSpace(searchTextBox.Text))
+            if (search != "")
             {
-                listUpdate = listUpdate
-                    .Where(p => p.Title.ToLower().Contains(searchTextBox.Text.ToLower())
-                    || p.Phone.Contains(searchTextBox.Text)
-                    || p.Email.ToLower().Contains(searchTextBox.Text.ToLower()))
-                    .ToList();
+                search = search.ToUpper();
+                listUpdate = listUpdate.Where(a => a.Title.ToUpper().Contains(search)).ToList();
+                flowLayoutPanel1.Controls.Clear();
             }
             #endregion
 
             #region Sort
-            if (sortComboBox.Text == "Наименование")
+            if (sort == "Наименование")
             {
                 if (!descCheckBox.Checked)
-                    listUpdate = listUpdate.OrderBy(p => p.Title).ToList();
+                {
+                    listUpdate = listUpdate.OrderBy(a => a.Title).ToList();
+                    flowLayoutPanel1.Controls.Clear();
+
+                }
                 else
-                    listUpdate = listUpdate.
-                        OrderByDescending(p => p.Title).ToList();
+                {
+                    listUpdate = listUpdate.OrderByDescending(a => a.Title).ToList();
+                    flowLayoutPanel1.Controls.Clear();
+
+                }
             }
+            if (sort == "Приоритет")
+            {
+                if (!descCheckBox.Checked)
+                {
+                    listUpdate = listUpdate.OrderBy(a => a.Priority).ToList();
+                    flowLayoutPanel1.Controls.Clear();
+                }
+                else
+                {
+                    listUpdate = listUpdate.OrderByDescending(a => a.Priority).ToList();
+                    flowLayoutPanel1.Controls.Clear();
+                }
+                
+            }
+            
             #endregion
             GenerateAgentCardList(listUpdate);
         }
@@ -148,7 +181,7 @@ namespace GlazkiSaveApp
         {
             if (searchTextBox.Text != "Введите для поиска")
             {
-                flowLayoutPanel1.Controls.Clear();
+                search = searchTextBox.Text;
                 SortListView();
             }
         }
@@ -180,6 +213,12 @@ namespace GlazkiSaveApp
         {
             PriorityChangeModalWindow priorityChange = new PriorityChangeModalWindow();
             DialogResult dialogResult = priorityChange.ShowDialog();
+        }
+
+        private void filterComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            filter = filterComboBox.Text;
+            SortListView();
         }
     }
 }
