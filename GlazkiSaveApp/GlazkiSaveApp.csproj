@@ -110,6 +110,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Views\EditAgentForm.resx">
+      <DependentUpon>EditAgentForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -120,6 +123,21 @@
       <DependentUpon>PriorityChangeModalWindow.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Config\packages.config" />
+    <None Include="Properties\DataSources\GlazkiSaveApp.Models.Agent.datasource" />
+    <None Include="Properties\DataSources\GlazkiSaveApp.Models.AgentPriorityHistory.datasource" />
+    <None Include="Properties\DataSources\GlazkiSaveApp.Models.AgentType.datasource" />
+    <None Include="Properties\DataSources\GlazkiSaveApp.Models.Material.datasource" />
+    <None Include="Properties\DataSources\GlazkiSaveApp.Models.MaterialCountHistory.datasource" />
+    <None Include="Properties\DataSources\GlazkiSaveApp.Models.MaterialType.datasource" />
+    <None Include="Properties\DataSources\GlazkiSaveApp.Models.ModelDb.datasource" />
+    <None Include="Properties\DataSources\GlazkiSaveApp.Models.Product.datasource" />
+    <None Include="Properties\DataSources\GlazkiSaveApp.Models.ProductCostHistory.datasource" />
+    <None Include="Properties\DataSources\GlazkiSaveApp.Models.ProductMaterial.datasource" />
+    <None Include="Properties\DataSources\GlazkiSaveApp.Models.ProductSale.datasource" />
+    <None Include="Properties\DataSources\GlazkiSaveApp.Models.ProductType.datasource" />
+    <None Include="Properties\DataSources\GlazkiSaveApp.Models.Shop.datasource" />
+    <None Include="Properties\DataSources\GlazkiSaveApp.Models.Supplier.datasource" />
+    <None Include="Properties\DataSources\GlazkiSaveApp.Models.sysdiagrams.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

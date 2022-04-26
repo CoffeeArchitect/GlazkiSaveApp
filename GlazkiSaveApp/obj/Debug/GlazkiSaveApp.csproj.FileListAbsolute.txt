@@ -34,3 +34,4 @@ C:\Users\королев\Source\Repos\GlazkiSaveApp\GlazkiSaveApp\obj\Debug\Glazk
 C:\Users\королев\Source\Repos\GlazkiSaveApp\GlazkiSaveApp\obj\Debug\GlazkiSaveApp.csproj.CopyComplete
 C:\Users\королев\Source\Repos\GlazkiSaveApp\GlazkiSaveApp\obj\Debug\GlazkiSaveApp.exe
 C:\Users\королев\Source\Repos\GlazkiSaveApp\GlazkiSaveApp\obj\Debug\GlazkiSaveApp.pdb
+C:\Users\королев\source\repos\GlazkiSaveApp\GlazkiSaveApp\obj\Debug\GlazkiSaveApp.Views.EditAgentForm.resources

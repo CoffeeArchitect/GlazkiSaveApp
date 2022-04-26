@@ -21,6 +21,9 @@ namespace GlazkiSaveApp
         public static List<AgentCard> selectedAgentCard = new List<AgentCard>();
         int currentPage = 0;
         int currentSize = 20;
+        // Счётчик страниц
+        int pageNum = 0;
+        int pageSize = 20;
         public MainForm()
         {
             InitializeComponent();
@@ -72,25 +75,13 @@ namespace GlazkiSaveApp
 
         private void Card_DoubleClick(object sender, EventArgs e)
         {
-            AgentCard card = (AgentCard)sender;
-
-            EditAgentForm editForm = new EditAgentForm()
-            {
-                Agent = (Agent)agents.First(a => $"{a.AgentType.Title} | {a.Title}" == card.typeNameLbl.Text)
-            };
-
+            AgentCard card = sender as AgentCard;
+            selectedAgentCard.Add(card);
+            EditAgentForm editForm = new EditAgentForm();
             DialogResult dialogResult = editForm.ShowDialog();
-
-            if (dialogResult == DialogResult.OK)
-            {
-                SortListView();
-            }
-
+            
         }
-        string search = "";
-        string filter = "Все типы";
-        string sort = "Наименование";
-
+        
         /// <summary>
         /// Filter, Search And Sort
         /// </summary>
@@ -99,72 +90,69 @@ namespace GlazkiSaveApp
             var listUpdate = DatabaseContext.db.Agent.ToList();
 
             #region Filter
-            if (filter != "Все типы")
+            if (filterComboBox.SelectedIndex > 0)
             {
-                listUpdate = listUpdate.Where(a => a.AgentType.Title == filter).ToList();
-                flowLayoutPanel1.Controls.Clear();
+                listUpdate = listUpdate
+                    .Where(type => type.AgentType.Title == filterComboBox.SelectedItem.ToString())
+                    .ToList();
             }
             #endregion
 
             #region Search
-            if (search != "")
+            if (searchTextBox.Text != "Введите для поиска" && !string.IsNullOrWhiteSpace(searchTextBox.Text))
             {
-                search = search.ToUpper();
-                listUpdate = listUpdate.Where(a => a.Title.ToUpper().Contains(search)).ToList();
-                flowLayoutPanel1.Controls.Clear();
+                listUpdate = listUpdate
+                    .Where(p => p.Title.ToLower().Contains(searchTextBox.Text.ToLower())
+                    || p.Phone.Contains(searchTextBox.Text)
+                    || p.Email.ToLower().Contains(searchTextBox.Text.ToLower()))
+                    .ToList();
             }
             #endregion
 
             #region Sort
-            if (sort == "Наименование")
+            if (sortComboBox.Text == "Наименование")
             {
                 if (!descCheckBox.Checked)
-                {
-                    listUpdate = listUpdate.OrderBy(a => a.Title).ToList();
-                    flowLayoutPanel1.Controls.Clear();
-
-                }
+                    listUpdate = listUpdate.OrderBy(p => p.Title).ToList();
                 else
-                {
-                    listUpdate = listUpdate.OrderByDescending(a => a.Title).ToList();
-                    flowLayoutPanel1.Controls.Clear();
-
-                }
+                    listUpdate = listUpdate.
+                        OrderByDescending(p => p.Title).ToList();
             }
-            if (sort == "Приоритет")
+            if (sortComboBox.Text == "Приоритет")
             {
                 if (!descCheckBox.Checked)
-                {
-                    listUpdate = listUpdate.OrderBy(a => a.Priority).ToList();
-                    flowLayoutPanel1.Controls.Clear();
-                }
+                    listUpdate = listUpdate.OrderBy(p => p.Priority).ToList();
                 else
-                {
-                    listUpdate = listUpdate.OrderByDescending(a => a.Priority).ToList();
-                    flowLayoutPanel1.Controls.Clear();
-                }
-                
+                    listUpdate = listUpdate.
+                        OrderByDescending(p => p.Priority).ToList();
+
             }
-            
+            flowLayoutPanel1.Controls.Clear();
+
+
             #endregion
+            
             GenerateAgentCardList(listUpdate);
         }
-        
-        private void TurnPageOnMainForm(int pagenum, int pagesize)
+
+        private void TurnPageOnMainForm(int pN, int pS)
         {
             if (currentPage < 0)
             {
                 currentPage = 0;
-                pagenum = 0;
+                pageNum = 0;
             }
 
-            pageNumLbl.Text = (pagenum + 1) + "/" + (int)(agents.Count / pagesize);
-            var agentsInPage = agents.Skip(pagenum * pagesize).Take(pagesize).ToList();
-            GenerateAgentCardList(agentsInPage);
+            pageNumLbl.Text = (pageNum + 1) + "/" + (int)(agents.Count / pageSize);
+            var pageList = agents.Skip(pageNum * pageSize).Take(pageSize).ToList();
+            GenerateAgentCardList(pageList);
         }
 
         private void pageNextLbl_Click(object sender, EventArgs e)
         {
+            if (pageNum > 3)
+                return;
+            pageNum++;
             currentPage = ((currentPage + 1) * currentSize) < agents.Count() ? (currentPage + 1) : currentPage;
             flowLayoutPanel1.Controls.Clear();
             TurnPageOnMainForm(currentPage, currentSize);
@@ -172,6 +160,9 @@ namespace GlazkiSaveApp
 
         private void prevLbl_Click(object sender, EventArgs e)
         {
+            if (pageNum < 1)
+                return;
+            pageNum--;
             currentPage = (currentPage - currentSize) < 0 ? (currentPage - 1) : 0;
             flowLayoutPanel1.Controls.Clear();
             TurnPageOnMainForm(currentPage, currentSize);
@@ -181,7 +172,7 @@ namespace GlazkiSaveApp
         {
             if (searchTextBox.Text != "Введите для поиска")
             {
-                search = searchTextBox.Text;
+                flowLayoutPanel1.Controls.Clear();
                 SortListView();
             }
         }
@@ -213,11 +204,12 @@ namespace GlazkiSaveApp
         {
             PriorityChangeModalWindow priorityChange = new PriorityChangeModalWindow();
             DialogResult dialogResult = priorityChange.ShowDialog();
+            SortListView();
         }
 
         private void filterComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            filter = filterComboBox.Text;
+            flowLayoutPanel1.Controls.Clear();
             SortListView();
         }
     }

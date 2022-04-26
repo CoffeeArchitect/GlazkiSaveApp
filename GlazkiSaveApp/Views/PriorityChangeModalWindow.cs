@@ -47,7 +47,7 @@ namespace GlazkiSaveApp.Views
             foreach (AgentCard agentCard in MainForm.selectedAgentCard)
             {
                 Agent agent = (DatabaseContext.db.Agent.First(x => x.Phone == agentCard.phoneLbl.Text)) as Agent;
-                agent.Priority += valueTxtBox;
+                agent.Priority = valueTxtBox;
             }
 
             try
